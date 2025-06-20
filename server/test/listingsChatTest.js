@@ -51,7 +51,7 @@ describe('listing data layer', () => {
         expect(actualListing.description).toEqual('This is a test listing')
     })
 
-    it.only('should allow a buyer to create a new chat', async () => {
+    it('should allow a buyer to create a new chat', async () => {
         // setup
         const { buyer, listing } = await createBuyerSellerAndListing()
 
@@ -64,7 +64,7 @@ describe('listing data layer', () => {
         expect(listingChat.buyer.toString()).toEqual(buyer._id.toString())
     })
 
-    it.only('should reuse an existing chat on the same listing', async () => {
+    it('should reuse an existing chat on the same listing', async () => {
         // setup
         const { buyer, listing } = await createBuyerSellerAndListing()
         const ogListingChat = await findOrCreateChatForListing(listing, buyer)
@@ -77,7 +77,7 @@ describe('listing data layer', () => {
         expect(listingChat._id.toString()).toEqual(ogListingChat._id.toString())
     })
 
-    it.only('should allow the buyer to find all their chats', async () => {
+    it('should allow the buyer to find all their chats', async () => {
         // setup
         const { buyer, listing } = await createBuyerSellerAndListing()
         const listingChat = await findOrCreateChatForListing(listing, buyer)
@@ -91,7 +91,7 @@ describe('listing data layer', () => {
         expect(actualChat._id.toString()).toEqual(listingChat._id.toString())
     })
 
-    it.only('should allow a seller to find all chats on a listing', async () => {
+    it('should allow a seller to find all chats on a listing', async () => {
         // setup
         const { buyer, seller, listing } = await createBuyerSellerAndListing()
         const listingChat = await findOrCreateChatForListing(listing, buyer)
@@ -111,7 +111,7 @@ describe('listing data layer', () => {
         // setup
         const { buyer, seller, listing } = await createBuyerSellerAndListing()
         const listingChat = await findOrCreateChatForListing(listing, buyer)
-        await addBuyerMessageToChat(listingChat, buyer, 'Hello Seller!')
+        await addBuyerMessageToChat(listingChat, 'Hello Seller!')
 
         // execute
         const chats = await findNewChatsForSeller(seller)

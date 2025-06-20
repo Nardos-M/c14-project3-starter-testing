@@ -11,7 +11,8 @@ const listingSchema = new mongoose.Schema({
 
 const listingChatSchema = new mongoose.Schema({
     buyer: { type: mongoose.Schema.Types.ObjectId, ref: 'buyer' },    
-    listing: { type: mongoose.Schema.Types.ObjectId, ref: 'listing' },    
+    listing: { type: mongoose.Schema.Types.ObjectId, ref: 'listing' }, 
+    message []
 });
 
 // Models
