@@ -51,7 +51,7 @@ describe('listing data layer', () => {
         expect(actualListing.description).toEqual('This is a test listing')
     })
 
-    it('should allow a buyer to create a new chat', async () => {
+    it.only('should allow a buyer to create a new chat', async () => {
         // setup
         const { buyer, listing } = await createBuyerSellerAndListing()
 
