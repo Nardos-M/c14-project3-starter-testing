@@ -8,7 +8,8 @@ Optional - set MONGO_URI to be the connection string to your MongoDB
 ```
 cd server
 npm install
-npm start
+npm test
+//npm start
 ```
 In terminal 2:
 ```

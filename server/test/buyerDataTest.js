@@ -50,6 +50,7 @@ describe('buyer data layer', () => {
     })
 
     it('should unsuccessfully check a buyer password', async () => {
+<<<<<<< HEAD
         // setup
         const actualBuyer = await createBuyer("tonytonetoni", "tony@toni.tone", "123456")
 
@@ -70,6 +71,31 @@ describe('buyer data layer', () => {
         //verify
         const passed = await checkBuyerPassword(actualBuyer._id, "NewPassword")
         expect(passed).toEqual(true)
+=======
+        //set up
+        const actualBuyer = await createBuyer("tonytonetoni", "tony@toni.tone", "123456")
+
+        //execute 
+        const passed = await checkBuyerPassword(actualBuyer._id, "nopassword")
+
+        //verify
+        expect(passed).toEqual(false)
+        //throw new Error('Implement me!')
+    })
+
+    it('should update buyer password', async () => {
+        //set up
+        const actualBuyer = await createBuyer("tonytonetoni", "tony@toni.tone", "123456")
+
+        //execute 
+      await updateBuyerPassword(actualBuyer._id, "newPass")
+        
+        //verify
+       // console.log(passed);
+       const passed = await checkBuyerPassword( actualBuyer._id,"newPass")
+        expect(passed).toEqual(true)
+        //throw new Error('Implement me!')
+>>>>>>> 66a9638b7bc09c9a791b953ec1482a7e0e478659
     })
 
 })
